@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.0-bionic
+    steps:
+      - run: echo "build"
+  deploy:
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.0-bionic
+    steps:
+      - run: echo "deploy"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^(?:[0-9]+\.?)+/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^(?:[0-9]+\.?)+/
+
