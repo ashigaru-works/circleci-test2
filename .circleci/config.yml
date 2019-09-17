@@ -16,4 +16,6 @@ jobs:
               export AWS_DEFAULT_REGION=us-east-1
              EOF
       - run: echo $AWS_DEFAULT_REGION
+      - run: echo $TERM
+      - run: echo $AAA
 
