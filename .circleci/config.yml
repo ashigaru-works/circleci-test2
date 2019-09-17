@@ -14,5 +14,5 @@ jobs:
               export TERM=xterm
               export AWS_DEFAULT_REGION=us-east-1
              EOF
-      - run: echo printenv
+      - run: printenv
 
