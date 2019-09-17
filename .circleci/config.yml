@@ -11,9 +11,9 @@ jobs:
              APPNAME=`echo ${CIRCLE_BRANCH}| sed 's$/$-$'`
              APPDIR=`echo ${CIRCLE_BRANCH} | sed 's$en/$$g' | sed 's$/$-$'`
              cat <<-EOF >> $BASH_ENV
-              export TERM=xterm
+              export TERM=TEST1
               export AAA=${CIRCLE_BRANCH}
-              export AWS_DEFAULT_REGION=us-east-1
+              export AWS_DEFAULT_REGION=TEST2
              EOF
       - run: echo $AWS_DEFAULT_REGION
       - run: echo $TERM
